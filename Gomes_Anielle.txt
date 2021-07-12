@@ -1,0 +1,173 @@
+create tables
+
+CREATE TABLE hotel (
+    id_hotel      INT      NOT NULL,
+    nome VARCHAR(30)       NOT NULL,
+    numeroCamere INT NOT NULL,
+    stelle INT NOT NULL,
+    colazione VARCHAR(5) NOT NULL,
+    PRIMARY KEY (id_hotel)
+
+);
+
+
+CREATE TABLE Prenotazione (
+    id_pren INT NOT NULL,
+    nome VARCHAR(30) NOT NULL,
+    cognome VARCHAR(30) NOT NULL,
+    telefono VARCHAR(30) NOT NULL,
+    PRIMARY KEY (id_pren)
+    
+);
+
+ CREATE TABLE partenza (
+    id_partenza   INT   NOT NULL,
+    data_partenza VARCHAR(10)       NOT NULL,
+    citta_partenza VARCHAR(30) NOT NULL,
+    PRIMARY KEY (id_partenza),
+    FOREIGN KEY (id_pack)  REFERENCES pacchetto(id_pack),
+    
+);
+
+
+
+CREATE TABLE pacchetto(
+id_pack INT NOT NULL,
+mod_viaggio VARCHAR(30) NOT NULL,
+durata INT NOT NULL,
+num_disponibilita INT NOT NULL,
+prezzo INT NOT NULL,
+PRIMARY KEY (id_pack),
+FOREIGN KEY (id_nazione)  REFERENCES nazione (id_nazione),
+FOREIGN KEY (id_pren)  REFERENCES prenotazione (id_pren)
+);
+
+
+ 
+
+ CREATE TABLE citta (
+    id_citta    INT   NOT NULL,
+    nome VARCHAR(30)       NOT NULL,
+    PRIMARY KEY (id_citta),
+    FOREIGN KEY (id_hotel)  REFERENCES hotel (id_hotel)
+    FOREIGN KEY (id_nazione)  REFERENCES nazione(id_nazione)
+);
+
+
+
+ 
+ CREATE TABLE nazione (
+    id_nazione    INT   NOT NULL,
+    nome VARCHAR(30)       NOT NULL,
+    clima VARCHAR(30) NOT NULL,
+    moneta VARCHAR(10) NOT NULL,
+    num_abitanti INT NOT NULL,
+    PRIMARY KEY (id_nazione),
+    FOREIGN KEY (id_citta)  REFERENCES citta (id_citta),
+    FOREIGN KEY (id_pack)  REFERENCES pacchetto (id_pack)
+);
+
+
+
+
+CREATE TABLE modalita_viaggio (
+   id_mod INT NOT NULL,
+   aereo_linea VARCHAR(30) NOT NULL,
+   aereo_low_cost VARCHAR(30) NOT NULL
+   bus_organizzato VARCHAR(30) NOT NULL,
+   bus_low_cost VARCHAR(30) NOT NULL,
+   treno VARCHAR(30) NOT NULL,
+   PRIMARY KEY(id_mod)
+   
+    
+);
+
+Inserts
+
+INSERT INTO citta (id_citta, nome) VALUES (1, 'Kamieniec');
+INSERT INTO citta (id_citta, nome) VALUES (2, 'Maji');
+INSERT INTO citta (id_citta, nome) VALUES (3, 'Mafinga');
+INSERT INTO citta (id_citta, nome) VALUES (4, 'Teplice');
+INSERT INTO citta (id_citta, nome) VALUES (5, 'Nossa Senhora do Socorro');
+INSERT INTO citta (id_citta, nome) VALUES (6, 'Druju');
+INSERT INTO citta (id_citta, nome) VALUES (7, 'Sindangsari');
+INSERT INTO citta (id_citta, nome) VALUES (8, 'Revelstoke');
+INSERT INTO citta (id_citta, nome) VALUES (9, 'Jacaltenango');
+INSERT INTO citta (id_citta, nome) VALUES (10, 'San Mateo');
+INSERT INTO citta (id_citta, nome) VALUES (11, 'Jining');
+INSERT INTO citta (id_citta, nome) VALUES (12, 'Puerto Galera');
+INSERT INTO citta (id_citta, nome) VALUES (13, 'Selajambe Satu');
+INSERT INTO citta (id_citta, nome) VALUES (14, 'Houjiachuan');
+
+insert dati tabella prenotazione
+INSERT INTO prenotazione (id_pren, nome, cognome, telefono) VALUES (1, 'Adélie', 'Radwell', '563-889-8194');
+INSERT INTO prenotazione (id_pren, nome, cognome, telefono) VALUES (2, 'Réjane', 'Khomishin', '599-930-2236');
+INSERT INTO prenotazione (id_pren, nome, cognome, telefono) VALUES (3, 'Lucrèce', 'Geeson', '512-248-6400');
+INSERT INTO prenotazione (id_pren, nome, cognome, telefono) VALUES (4, 'Lén', 'Eslinger', '610-320-9472');
+INSERT INTO prenotazione (id_pren, nome, cognome, telefono) VALUES (5, 'Estève', 'Aviss', '563-856-5252');
+INSERT INTO prenotazione (id_pren, nome, cognome, telefono) VALUES (6, 'Agnès', 'Preon', '391-719-9250');
+INSERT INTO prenotazione (id_pren, nome, cognome, telefono) VALUES (7, 'Måns', 'Kingsmill', '718-561-1367');
+INSERT INTO prenotazione (id_pren, nome, cognome, telefono) VALUES (8, 'Frédérique', 'Ruben', '266-178-8983');
+INSERT INTO prenotazione (id_pren, nome, cognome, telefono) VALUES (9, 'Angèle', 'Waeland', '223-735-0762');
+INSERT INTO prenotazione (id_pren, nome, cognome, telefono) VALUES (10, 'Léonore', 'Quinnelly', '308-323-8806');
+INSERT INTO prenotazione (id_pren, nome, cognome, telefono) VALUES (11, 'Clémentine', 'Thursby', '855-974-0434');
+INSERT INTO prenotazione (id_pren, nome, cognome, telefono) VALUES (12, 'Laurélie', 'Routledge', '325-701-3792');
+INSERT INTO prenotazione (id_pren, nome, cognome, telefono) VALUES (13, 'Véronique', 'Densey', '542-288-8029');
+INSERT INTO prenotazione (id_pren, nome, cognome, telefono) VALUES (14, 'Publicité', 'Dillingham', '895-925-6975');
+INSERT INTO prenotazione (id_pren, nome, cognome, telefono) VALUES (15, 'Joséphine', 'Lys', '956-311-5142');
+INSERT INTO prenotazione (id_pren, nome, cognome, telefono) VALUES (16, 'Maëline', 'Button', '205-597-8353');
+INSERT INTO prenotazione (id_pren, nome, cognome, telefono) VALUES (17, 'Lauréna', 'Barnewelle', '145-453-9242');
+INSERT INTO prenotazione (id_pren, nome, cognome, telefono) VALUES (18, 'Léone', 'Willstrop', '670-268-6324');
+INSERT INTO prenotazione (id_pren, nome, cognome, telefono) VALUES (19, 'Nélie', 'Autry', '860-763-4591');
+INSERT INTO prenotazione (id_pren, nome, cognome, telefono) VALUES (20, 'Nuó', 'Rundall', '822-871-3288');
+INSERT INTO prenotazione (id_pren, nome, cognome, telefono) VALUES (21, 'Léa', 'Jozefczak', '566-838-1298');
+INSERT INTO prenotazione (id_pren, nome, cognome, telefono) VALUES (22, 'Valérie', 'Catmull', '969-305-4026');
+INSERT INTO prenotazione (id_pren, nome, cognome, telefono) VALUES (23, 'Esbjörn', 'Baron', '480-835-1097');
+
+INSERT INTO nazione (id_nazione, nome, clima, moneta, num_abitanti) VALUES (1, 'Portugal', 'Tropical', 'euro', 500000);
+INSERT INTO nazione (id_nazione, nome, clima, moneta, num_abitanti) VALUES (2, 'China', 'Tropical', 'dolar', 8000000);
+INSERT INTO nazione (id_nazione, nome, clima, moneta, num_abitanti) VALUES (3, 'China', 'Freddo', 'real',4000000);
+INSERT INTO nazione (id_nazione, nome, clima, moneta, num_abitanti) VALUES (4, 'Greece', 'Caldo', 'euro', 52000);
+INSERT INTO nazione (id_nazione, nome, clima, moneta, num_abitanti) VALUES (5, 'Poland', 'Freddo', 'yemem', 30000);
+INSERT INTO nazione (id_nazione, nome, clima, moneta, num_abitanti) VALUES (6, 'China', 'tropical', 'dolar', 3500000);
+INSERT INTO nazione (id_nazione, nome, clima, moneta, num_abitanti) VALUES (7, 'Japan', 'Freddo', 'euro', 56000000);
+INSERT INTO nazione (id_nazione, nome, clima, moneta, num_abitanti) VALUES (8, 'Russia', 'Freddo', 'dolar', 450000);
+INSERT INTO nazione (id_nazione, nome, clima, moneta, num_abitanti) VALUES (9, 'China', 'Tropical', 'real', 450000);
+INSERT INTO nazione (id_nazione, nome, clima, moneta, num_abitanti) VALUES (10, 'Portugal', 'freddo', 'dolar', 2000000);
+
+INSERT INTO hotel (id_hotel, nome, numeroCamere, stelle, colazione) VALUES (1, 'Adélie', 3, 5, 'si');
+INSERT INTO hotel (id_hotel, nome, numeroCamere, stelle, colazione) VALUES (2, 'Admeli', 2, 5, 'si');
+INSERT INTO hotel (id_hotel, nome, numeroCamere, stelle, colazione) VALUES (3, 'Aibid', 3, 5, 'no');
+INSERT INTO hotel (id_hotel, nome, numeroCamere, stelle, colazione) VALUES (4, 'Ibis', 3, 5, 'si');
+INSERT INTO hotel (id_hotel, nome, numeroCamere, stelle, colazione) VALUES (5, 'Beleme', 3, 3, 'no');
+INSERT INTO hotel (id_hotel, nome, numeroCamere, stelle, colazione) VALUES (6, 'cost', 5, 5, 'no');
+
+INSERT INTO pacchetto (id_pack, mod_viaggio, durata, num_disponibilita, prezzo) VALUES (1, 'treno', 40, 2, 1500);
+INSERT INTO pacchetto (id_pack, mod_viaggio, durata, num_disponibilita, prezzo) VALUES (2, 'aereo_linea', 40, 2, 1500);
+INSERT INTO pacchetto (id_pack, mod_viaggio, durata, num_disponibilita, prezzo) VALUES (3, 'treno', 30, 2, 1500);
+INSERT INTO pacchetto (id_pack, mod_viaggio, durata, num_disponibilita, prezzo) VALUES (4, 'bus_organizzato', 40, 2, 1500);
+INSERT INTO pacchetto (id_pack, mod_viaggio, durata, num_disponibilita, prezzo) VALUES (5, 'aereo_low_cost', 40, 2, 1500);
+INSERT INTO pacchetto (id_pack, mod_viaggio, durata, num_disponibilita, prezzo) VALUES (6, 'aereo_linea', 40, 2, 1500);
+INSERT INTO pacchetto (id_pack, mod_viaggio, durata, num_disponibilita, prezzo) VALUES (7, 'aereo_low_cost', 40, 2, 1500);
+
+INSERT INTO partenza (id_partenza, data_partenza, citta_partenza) VALUES (1, '25/10/2018', 'Venezia');
+INSERT INTO partenza (id_partenza, data_partenza, citta_partenza) VALUES (2, '25/10/2018', 'Venezia');
+INSERT INTO partenza (id_partenza, data_partenza, citta_partenza) VALUES (3, '12/10/2018', 'Roma');
+INSERT INTO partenza (id_partenza, data_partenza, citta_partenza) VALUES (4, '01/10/2018', 'Milano');
+INSERT INTO partenza (id_partenza, data_partenza, citta_partenza) VALUES (5, '29/10/2018', 'Treviso');
+INSERT INTO partenza (id_partenza, data_partenza, citta_partenza) VALUES (6, '25/10/2018', 'Pisa');
+INSERT INTO partenza (id_partenza, data_partenza, citta_partenza) VALUES (7, '25/10/2018', 'Venezia');
+INSERT INTO partenza (id_partenza, data_partenza, citta_partenza) VALUES (8, '25/10/2018', 'Friula');
+INSERT INTO partenza (id_partenza, data_partenza, citta_partenza) VALUES (9, '25/11/2018', 'Venezia');
+INSERT INTO partenza (id_partenza, data_partenza, citta_partenza) VALUES (10, '25/12/2018', 'Venezia');
+
+Numero di proposte di viaggio in Europa
+
+SELECT COUNT(*) FROM citta
+WHERE citta = "Europa";
+
+- Numero di proposte di viaggio non in Europa e con un prezzo inferiore a 2000 euro
+
+
+
+

@@ -1,0 +1,28 @@
+LEMBRAR:
+
+ajeitar o profilo pra dinamico no PROJETO VELHO GESTIONE BIBLIOTECA
+SITE PRA PEGAR DADOS NO SQLSERVVER:https://www.generatedata.com/
+AJEITAR O EDIT QUE NAO FUNCIONA
+INSERIR UM SEARCH
+fazer spunta diposnibile no livro 
+
+passar todos databases q tenho no meu sql server p escola, lembrar de exportar com todos os inserts.
+Imagens para o site ficam dentro da caRtela Content do projeto.
+Nesta cartella vou salvar imagens tanto pro projeto quanto para o desing do database.
+
+pagina de role controller: https://github.com/binitutor/MVC-Roles/blob/master/BiniTutor/Controllers/RoleController.cs
+
+Studente: Anielle Gomes Macedo
+l'applicazione:
+Database:
+
+Per accedere alla pagina specifica del sito sono state create X tipologie di ruoli:
+Amministratore
+cliente
+dipendente
+I ruoli sono stati creati in RoleController e solo l'amministratore del sito (con il ruolo di amministratore) può
+creare e assegnare ruoli per gli utenti registrati. Solo lui ha accesso alle voci creare ruoli e assegnare ruoli.
+
+Per comodità, tutti gli utenti sono stati creati con la password: Its-2...1
+
+In allegato: oltre a questo documento, sono presenti il ​​progetto e il file .sql per recuperare i dati dal database.

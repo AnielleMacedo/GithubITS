@@ -1,0 +1,39 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+               
+
+                <ul class="nav flex-column">
+
+                    
+                    <li class="nav-item ">
+                        <a class="nav-link">
+                            <span data-feather="shopping-cart">@Html.ActionLink("Elenco di Libri in Prestito", "Index", "Dashboard")</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item ">
+                        <a class="nav-link">
+                            <span data-feather="shopping-cart">@Html.ActionLink("Studenti con un libro in prestito", "UnoLibroInPrestito", "Dashboard")</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">
+                             <span data-feather="shopping-cart">@Html.ActionLink("Studenti con prestito scaduto", "PrestitoScaduto", "Dashboard")</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">
+                            <span data-feather="shopping-cart">  @Html.ActionLink("Storico dei Prestiti", "StoricoPrestito", "Dashboard")</span>
+                        </a>
+                    </li>
+
+
+                </ul>
+
+
+
+            </div>
+        </nav>
+  

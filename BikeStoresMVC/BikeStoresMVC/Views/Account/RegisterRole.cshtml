@@ -1,0 +1,45 @@
+﻿
+<!--@@model Microsoft.AspNet.Identity.EntityFramework.IdentityRole-->
+@model BikeStoresMVC.Models.RegisterViewModel
+<!--add registerviewmodel onde colcamos nossa propriedade Name-->
+
+@{
+    ViewBag.Title = "RegisterRole";
+}
+
+<h2>Assegna Ruolo all' Utente</h2>
+
+<!--Essa view vem do metodo RegisterRole do controller Account-->
+@using (Html.BeginForm("RegisterRole", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4> Crea un nuovo account</h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.Label("Seleziona Utente", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownList("UserName")
+        </div>
+    </div>
+
+    <!--seleciona o tipo de ruolo usuario-->
+    <div class="form-group">
+        @Html.Label("Seleziona Ruolo", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownList("Name")
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="Submit" class="btn btn-default" value="Assegna Ruolo" />
+        </div>
+    </div>
+
+}
+
+
+
+
+

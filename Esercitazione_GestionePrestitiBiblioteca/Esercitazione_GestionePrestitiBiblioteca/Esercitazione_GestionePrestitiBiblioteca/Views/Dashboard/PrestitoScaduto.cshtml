@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Esercitazione_GestionePrestitiBiblioteca.Models.PrestitoViewModel>
+
+@{
+    ViewBag.Title = "PrestitoScaduto";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br /><br /><br />
+
+
+@Html.Partial("_SideBar")
+
+
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <br />
+    <center><h4>Prestiti Scaduti</h4></center><br />
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+    <tr>
+        <th>
+            Studente
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.DataPrestito)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataRestituzione)
+        </th>
+
+
+        <th>
+            Libro
+        </th>
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)  @Html.DisplayFor(modelItem => item.Cognome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataPrestito)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataRestituzione)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Titolo)
+            </td>
+
+
+
+
+        </tr>
+    }
+
+</table>
+
+        
+    </div>
+
+
+
+</main>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+

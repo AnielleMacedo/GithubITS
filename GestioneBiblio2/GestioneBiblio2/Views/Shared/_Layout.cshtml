@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Applicazione ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Gestione Ordini", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    @*<li>@Html.ActionLink("Informazioni", "About", "Home")</li>*@
+                    <li>@Html.ActionLink("Contatto", "Contact", "Home")</li>
+
+
+
+                    @if (Request.IsAuthenticated)
+                    {
+                        if (!User.IsInRole("Administrator"))
+                        {
+                            <li>@Html.ActionLink("Libri", "ElencoLibri", "Libri")</li>
+                        }
+
+
+                        else if (User.IsInRole("Customer"))
+                        {
+
+                            <!--<li>@Html.ActionLink("Studenti", "Index", "Studenti")</li>--><!--nome abasite/ nome action-/nome controller-->
+
+
+                        }
+                        else if (User.IsInRole("Administrator"))
+                        {
+
+                            <li>@Html.ActionLink("Dashboard", "Index", "Dashboard", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                            <li>@Html.ActionLink("Crea Ruoli", "Index", "Role")</li>
+                            <li>@Html.ActionLink("Assegna Ruoli", "RegisterRole", "Account")</li>
+                            <li>@Html.ActionLink("Studenti", "Index", "Studenti")</li><!--nome abasite/ nome action-/nome controller-->
+                            <li>@Html.ActionLink("Libri", "Index", "Libri")</li>
+
+                        }
+
+                        //se è autenticcado mas nao tem um ruolo assegnato ainda
+                        @*else
+            {
+                <li>@Html.ActionLink("Libri", "Index", "Libri")</li>
+            }*@
+
+
+                    }
+
+
+                    @* For unknown user *@
+                    @*else
+        {
+            <li> this menu item is for Unknown user</li>
+
+        }*@
+
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        @*<footer>
+            <p>&copy; @DateTime.Now.Year - Applicazione ASP.NET</p> 
+        </footer>*@
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

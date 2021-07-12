@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br /><br /><br />
+
+
+@Html.Partial("_SideBar")
+
+
+
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <br />
+    <center><h4>Libri in Prestito</h4></center><br />
+    <div class="table-responsive">
+
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Codice Libro</th>
+                            <th>Titolo</th>
+                            <th>Autore</th>
+                            <th>Editore</th>
+                            <th>Prestito</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+
+                        @foreach (var item in ViewData["jointables"] as IEnumerable<Esercitazione_GestionePrestitiBiblioteca.Models.PrestitoViewModel>)
+                        {
+                        <tr>
+                            <td>@item.PrestitiList.CodiceLibro</td>
+                            <td>@item.LibriList.Titolo</td>
+                            <td>@item.LibriList.Autore</td>
+                            <td>@item.LibriList.Editore</td>
+
+                        <td> @Html.DisplayFor(modelItem => item.PrestitiList.DataPrestito)</td>
+
+                        </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+    </div>
+
+
+
+</main>
+    </div>
+</div>
+
+
+
+
+
+

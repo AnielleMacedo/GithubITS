@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Esercitazione_GestionePrestitiBiblioteca.Models.Prestito>
+
+@{
+    ViewBag.Title = "Gestione - Prestiti";
+}
+
+    <h2>Gestione - Prestiti</h2>
+
+<p>
+    @Html.ActionLink("Crea nuovo prestito", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Libro.Autore)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Libro.Titolo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Studente.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Studente.Cognome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataPrestito)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataRestituzione)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Libro.Autore)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Libro.Titolo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Studente.Nome)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Studente.Cognome)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DataPrestito, "{0:d MMM yyy }")
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DataRestituzione)
+    </td>
+
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.IdPrestito }) |
+        @Html.ActionLink("Details", "Details", new { id = item.IdPrestito }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.IdPrestito })
+    </td>
+</tr>
+}
+
+</table>

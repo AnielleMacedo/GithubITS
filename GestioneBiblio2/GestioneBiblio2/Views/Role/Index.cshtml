@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>
+
+@{
+    ViewBag.Title = "Ruoli";
+}
+
+<h3>Crea nuovi ruoli</h3>
+<br />
+
+<section class="col-sm-6">
+    <table class="table-bordered">
+        <!--nome/ action/ controller-->
+        <!--metodo creato in RoleController-->
+        @Html.ActionLink("Crea ruolo per utente", "Create", "Role", new { @class = "btn alert-info btn-block" })
+    </table>
+    <br />
+</section>
+<!--<section class="col-sm-6">
+    <table class="table-bordered">-->
+<!--Creo questo metodo in accountController-->
+<!--@Html.ActionLink("Assegna ruolo per utente", "RegisterRole", "Account", new { @class = "btn alert-info btn-block" })
+    </table>
+</section>-->
+
+<br />
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th class="c">
+             Ruoli creati:
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="c">
+                @item.Name  <br />
+            </td>
+                <td>
+                <span onclick="return confirm('Sei sicuro di cancellare?')"><a href="/Role/Delete?Role=@item.Name" class="delLink" style="color:red;">Delete</a></span> |
+                @Html.ActionLink("Edit", "Edit", new { Role = @item.Name })
+                </td>
+            
+
+        </tr>
+    }
+
+</table>
+
+
+
+
+
+

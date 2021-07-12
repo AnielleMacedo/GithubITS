@@ -1,0 +1,23 @@
+﻿@model Microsoft.AspNet.Identity.EntityFramework.IdentityRole
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Modifica Ruolo</h2>
+
+@Html.ActionLink("Crea Ruolo", "Index") | @Html.ActionLink("Assegna Ruolo","RegisterRole", "Account")
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(m => m.Id)
+    <div>
+        Role name
+    </div>
+    <p>
+        @Html.TextBoxFor(m => m.Name)
+    </p>
+    <input type="submit" value="Salva" />
+}
+
