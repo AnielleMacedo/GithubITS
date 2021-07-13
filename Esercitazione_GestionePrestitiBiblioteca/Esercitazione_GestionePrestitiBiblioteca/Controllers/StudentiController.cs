@@ -25,6 +25,7 @@ namespace Esercitazione_GestionePrestitiBiblioteca.Controllers
         [Authorize(Roles = "Studente")]
         public ActionResult Profilo() //profilo privato studente
         {
+            ViewBag.Ruolo = "meuovo";
             return View();
         }
 

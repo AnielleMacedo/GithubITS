@@ -6,22 +6,20 @@
 
 <h2>Il tuo profilo</h2>
 
-<h3>Benvenuto fulano (escrever o nome o usuario dinamicamente) </h3>
+<h3>Benvenuto nella tua dashboard: (escrever o nome o usuario dinamicamente) </h3> @ViewBag.Ruolo
 
-<table class="table table-bordered table-hover">
-    <tr>
-        <th class="c">
-            Nome del Ruolo
-        </th>
-    </tr>
-    @*@foreach (var item in Email)
-    {
-        <tr>
-            <td class="c">
-                @item.Name
-            </td>
+<!--pode colocar aki tb um if restringindo quem pode entrar noos links abaixo-->
 
-        </tr>
-    }*@
+@if (Request.IsAuthenticated)
+{
+    <p><a href="Products/Index">Elenco Prodotti</a></p>
+    <p><a href="Clienti/Index">Elenco Clienti</a></p>
 
-</table>
+}
+else
+{
+    <p>Non sei autenticato!</p>
+
+}
+
+

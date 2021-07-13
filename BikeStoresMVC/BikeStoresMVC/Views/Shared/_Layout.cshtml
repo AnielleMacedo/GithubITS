@@ -25,10 +25,11 @@
                     <ul class="nav navbar-nav">
 
                         <li> @Html.ActionLink("Home", "Index", "Home") </li>
+                        <li> @Html.ActionLink("Dashboard", "Index", "Dashboard") </li>
 
                         <li> @Html.ActionLink("Prodotti in Vendita", "Index", "products") </li>
 
-                
+
 
                         @if (User.Identity.IsAuthenticated)
                         {
@@ -37,7 +38,7 @@
 
 
                         @*<li>@Html.ActionLink("Informazioni", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contatto", "Contact", "Home")</li>*@
+        <li>@Html.ActionLink("Contatto", "Contact", "Home")</li>*@
 
                         @if ((User.Identity.IsAuthenticated) && (User.IsInRole("Administrator")))
                         {

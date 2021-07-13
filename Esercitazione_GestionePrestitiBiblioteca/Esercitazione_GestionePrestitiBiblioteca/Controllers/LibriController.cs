@@ -25,14 +25,6 @@ namespace Esercitazione_GestionePrestitiBiblioteca.Controllers
         [AllowAnonymous]
         public ActionResult Elenco() //view accessibile a Studenti e atutti
         {
-            //var elenco = db.Prestito.Include(p => p.Libro).Include(p => p.Studente);//inclui outras classes
-
-
-            //if (elenco != null)
-            //{
-            //    disponibile = true;
-            //}
-           
 
             return View(db.Libro.ToList());
         }
@@ -42,8 +34,7 @@ namespace Esercitazione_GestionePrestitiBiblioteca.Controllers
         [AllowAnonymous]
         public ActionResult Details(int? id)
         {
-            ViewBag.Disponibile = false;// fazer join com tabelas prestito
-                      
+                                  
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -55,13 +46,17 @@ namespace Esercitazione_GestionePrestitiBiblioteca.Controllers
             {
                 return HttpNotFound();
             }
-
-            var prestitoLibri = db.Prestito.Include(p => p.Libro).Include(p => p.Studente);//esistenza di un prestito
-           
-            if (prestitoLibri != null) //in caso di prestito inesistente/nulo libro è dispponibile
+            //inserindo spunta dispnibile
+            ViewBag.Disponibile = true;
+            foreach (var prestito in libro.Prestito)
             {
-                ViewBag.Disponibile = true;
+                if (prestito.DataRestituzione == null)
+                {
+                    ViewBag.Disponibile = false;
+                }
+
             }
+
             return View(libro);
         }
 

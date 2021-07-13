@@ -15,12 +15,14 @@ namespace BikeStoresMVC.Controllers
         private BikeStoresEntities db = new BikeStoresEntities();
 
         // GET: products
-        public ActionResult Index()
+        public ActionResult Index(string nameString)
         {
-            var products = db.products.Include(p => p.brands).Include(p => p.categories);
-            return View(products.ToList());
+            return View(db.products.Where(x => x.product_name.Contains(nameString) || nameString == null).ToList());//se n botar == null n aparece a lista de inicio
+            //var products = db.products.Include(p => p.brands).Include(p => p.categories);
+            //return View(products.ToList());
         }
 
+       
         // GET: products/Details/5
         public ActionResult Details(int? id)
         {

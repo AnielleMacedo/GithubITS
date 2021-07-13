@@ -1,10 +1,10 @@
 LEMBRAR:
-
+COMO VER UMA DASBOARD A SECONDA DEL RUOLO O DEL USER -> ver ultimos minutos do video de catalano e tentar aplicar
 ajeitar o profilo pra dinamico no PROJETO VELHO GESTIONE BIBLIOTECA
-SITE PRA PEGAR DADOS NO SQLSERVVER:https://www.generatedata.com/
+adicionar pagina download bootstrap : https://www.youtube.com/watch?v=AmfTwqwRdE4
+rever o exercicio das queries q fiz na dasboard presitibiblioteca
+SITE PRA PEGAR DADOS NO SQLSERVVER: https://www.generatedata.com/
 AJEITAR O EDIT QUE NAO FUNCIONA
-INSERIR UM SEARCH
-fazer spunta diposnibile no livro 
 
 passar todos databases q tenho no meu sql server p escola, lembrar de exportar com todos os inserts.
 Imagens para o site ficam dentro da caRtela Content do projeto.
