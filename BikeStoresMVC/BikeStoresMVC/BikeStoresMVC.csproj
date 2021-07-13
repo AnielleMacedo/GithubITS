@@ -2063,7 +2063,13 @@
     <Content Include="Views\Account\RegisterRole.cshtml" />
     <Content Include="Views\categories\ElencoProdotti.cshtml" />
     <Content Include="Views\categories\DetailsProductCategory.cshtml" />
+    <Content Include="Views\Dashboard\Delete.cshtml" />
+    <Content Include="Views\Dashboard\Edit.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Shared\_SideBar.cshtml" />
+    <Content Include="Views\Shared\_NavBar.cshtml" />
+    <Content Include="Views\Shared\HeaderCards.cshtml" />
+    <Content Include="Views\Dashboard\JoinProductCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

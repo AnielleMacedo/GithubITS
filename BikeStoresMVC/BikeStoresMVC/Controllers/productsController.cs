@@ -38,7 +38,7 @@ namespace BikeStoresMVC.Controllers
             return View(products);
         }
 
-        // GET: products/Create
+   
         public ActionResult Create()
         {
             ViewBag.brand_id = new SelectList(db.brands, "brand_id", "brand_name");
@@ -46,9 +46,7 @@ namespace BikeStoresMVC.Controllers
             return View();
         }
 
-        // POST: products/Create
-        // Per la protezione da attacchi di overposting, abilitare le proprietà a cui eseguire il binding. 
-        // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "product_id,product_name,brand_id,category_id,model_year,list_price")] products products)
@@ -82,9 +80,7 @@ namespace BikeStoresMVC.Controllers
             return View(products);
         }
 
-        // POST: products/Edit/5
-        // Per la protezione da attacchi di overposting, abilitare le proprietà a cui eseguire il binding. 
-        // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "product_id,product_name,brand_id,category_id,model_year,list_price")] products products)
